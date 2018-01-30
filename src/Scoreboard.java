@@ -1,6 +1,5 @@
 import java.awt.BorderLayout;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,10 +23,10 @@ public class Scoreboard {
 
 	JLabel awayTitle = new JLabel("Away");
 	JLabel homeTitle = new JLabel("Home");
-	JButton homeScore = new JButton();
+	JLabel homeScore = new JLabel();
 	JLabel homeTO = new JLabel();
 	JLabel homeFouls = new JLabel();
-	JButton awayScore = new JButton();
+	JLabel awayScore = new JLabel();
 	JLabel awayFouls = new JLabel();
 	JLabel awayTO = new JLabel();
 	int hScore = 0;
@@ -75,7 +74,30 @@ public class Scoreboard {
 		awayTO.setText("TOs: " + (Integer.toString(aTO)));
 		homeTO.setText("TOs: " + (Integer.toString(hTO)));
 
-		frame.pack();
+	}
+
+	public void changeHomeScore(int addScore) {
+		this.hScore += addScore;
+	}
+
+	public void changeAwayScore(int addScore) {
+		this.aScore += addScore;
+	}
+
+	public void changeAwayTO(int addTO) {
+		this.aTO += addTO;
+	}
+
+	public void changeHomeTO(int addTO) {
+		this.hTO += addTO;
+	}
+
+	public void changeAwayFouls(int addFouls) {
+		this.aFouls += addFouls;
+	}
+
+	public void changeHomeFouls(int addFouls) {
+		this.hFouls += addFouls;
 	}
 
 }
