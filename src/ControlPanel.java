@@ -47,10 +47,11 @@ public class ControlPanel implements ActionListener {
 	JButton hTOPlus = new JButton("+1 TO");
 	JButton hTOMinus = new JButton("-1 TO");
 
-	JTextField hTeamName = new JTextField("Home Team Name");
-	JTextField aTeamName = new JTextField("Away Team Name");
+	JTextField hTeamName = new JTextField("Home Team Name (Press Enter)");
+	JTextField aTeamName = new JTextField("Away Team Name (Press Enter)");
 
 	public void run() {
+		board.run();
 		frame.setLayout(new BorderLayout());
 		aNorth.setLayout(new BorderLayout());
 		aCenter.setLayout(new BorderLayout());
@@ -88,71 +89,82 @@ public class ControlPanel implements ActionListener {
 		aCenter.add(aScorePlus, BorderLayout.WEST);
 		aCenter.add(aScoreMinus, BorderLayout.EAST);
 
-		hSouthNorth.add(hFoulsPlus, BorderLayout.WEST);
-		hSouthNorth.add(hFoulsMinus, BorderLayout.EAST);
-		aSouthNorth.add(aFoulsPlus, BorderLayout.WEST);
-		aSouthNorth.add(aFoulsMinus, BorderLayout.EAST);
+		hSouthSouth.add(hFoulsPlus, BorderLayout.WEST);
+		hSouthSouth.add(hFoulsMinus, BorderLayout.EAST);
+		aSouthSouth.add(aFoulsPlus, BorderLayout.WEST);
+		aSouthSouth.add(aFoulsMinus, BorderLayout.EAST);
 
-		hSouthSouth.add(hTOPlus, BorderLayout.WEST);
-		hSouthSouth.add(hTOMinus, BorderLayout.EAST);
-		aSouthSouth.add(aTOPlus, BorderLayout.WEST);
-		aSouthSouth.add(aTOMinus, BorderLayout.EAST);
+		hSouthNorth.add(hTOPlus, BorderLayout.WEST);
+		hSouthNorth.add(hTOMinus, BorderLayout.EAST);
+		aSouthNorth.add(aTOPlus, BorderLayout.WEST);
+		aSouthNorth.add(aTOMinus, BorderLayout.EAST);
 
 		frame.setVisible(true);
 
 		hScorePlus.addActionListener(this);
+		aScorePlus.addActionListener(this);
+		hScoreMinus.addActionListener(this);
+		aScoreMinus.addActionListener(this);
+		aTOMinus.addActionListener(this);
+		hTOMinus.addActionListener(this);
+		hTOPlus.addActionListener(this);
+		aTOPlus.addActionListener(this);
+		hFoulsPlus.addActionListener(this);
+		aFoulsPlus.addActionListener(this);
+		aFoulsMinus.addActionListener(this);
+		hFoulsPlus.addActionListener(this);
+		hTeamName.addActionListener(this);
+		aTeamName.addActionListener(this);
 
+		frame.pack();
 	}
 
 	public void actionPerformed(ActionEvent e) {
 		if (e.getSource() == hScorePlus) {
 			board.changeHomeScore(1);
 
-		}
-		if (e.getSource() == aScorePlus) {
+		} else if (e.getSource() == aScorePlus) {
 			board.changeAwayScore(1);
 
-		}
-		if (e.getSource() == hScoreMinus) {
+		} else if (e.getSource() == hScoreMinus) {
 			board.changeHomeScore(-1);
 
-		}
-		if (e.getSource() == aScoreMinus) {
+		} else if (e.getSource() == aScoreMinus) {
 			board.changeAwayScore(-1);
 
-		}
-		if (e.getSource() == aTOPlus) {
+		} else if (e.getSource() == aTOPlus) {
 			board.changeAwayTO(1);
 
-		}
-		if (e.getSource() == aTOMinus) {
+		} else if (e.getSource() == aTOMinus) {
 			board.changeAwayTO(-1);
 
-		}
-		if (e.getSource() == hTOMinus) {
+		} else if (e.getSource() == hTOMinus) {
 			board.changeHomeTO(-1);
 
-		}
-		if (e.getSource() == hTOPlus) {
+		} else if (e.getSource() == hTOPlus) {
 			board.changeHomeTO(1);
 
-		}
-		if (e.getSource() == hFoulsPlus) {
+		} else if (e.getSource() == hFoulsPlus) {
 			board.changeHomeFouls(1);
 
-		}
-		if (e.getSource() == hFoulsMinus) {
+		} else if (e.getSource() == hFoulsMinus) {
 			board.changeHomeFouls(-1);
 
-		}
-		if (e.getSource() == aFoulsMinus) {
+		} else if (e.getSource() == aFoulsMinus) {
 			board.changeAwayFouls(-1);
 
-		}
-		if (e.getSource() == aFoulsPlus) {
+		} else if (e.getSource() == aFoulsPlus) {
 			board.changeAwayFouls(1);
+
+		} else if (e.getSource() == hTeamName) {
+			String text = hTeamName.getText();
+			board.changeHomeName(text);
+		}
+
+		else if (e.getSource() == aTeamName) {
+			String text = aTeamName.getText();
+			board.changeAwayName(text);
 
 		}
 	}
-
 }
