@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -48,8 +50,9 @@ public class Scoreboard {
 		hNorth.setLayout(new BorderLayout());
 		hCenter.setLayout(new BorderLayout());
 		hSouth.setLayout(new BorderLayout());
-		away.setLayout(new BorderLayout());
-		home.setLayout(new BorderLayout());
+
+		homeScore.setLayout(new BorderLayout());
+		awayScore.setLayout(new BorderLayout());
 		homeTitle.setBackground(Color.RED);
 		homeTitle.setOpaque(true);
 		awayTitle.setBackground(Color.BLUE);
@@ -59,6 +62,7 @@ public class Scoreboard {
 		frame.add(away, BorderLayout.EAST);
 		away.add(aSouth, BorderLayout.SOUTH);
 		away.add(aCenter, BorderLayout.CENTER);
+
 		away.add(aNorth, BorderLayout.NORTH);
 		awayScore.setFont(new Font("Ipact", Font.BOLD, 50));
 		homeScore.setFont(new Font("Ipact", Font.BOLD, 50));
@@ -84,7 +88,9 @@ public class Scoreboard {
 		homeFouls.setText("Fouls: " + (Integer.toString(hFouls)));
 		awayTO.setText("TOs: " + (Integer.toString(aTO)));
 		homeTO.setText("TOs: " + (Integer.toString(hTO)));
-
+		java.net.URL homePic = getClass().getResource("redfootball.png");
+		Icon homePicture = new ImageIcon(homePic);
+		homeScore.setIcon(homePicture);
 		frame.pack();
 
 	}

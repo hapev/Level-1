@@ -112,7 +112,7 @@ public class ControlPanel implements ActionListener {
 		hFoulsPlus.addActionListener(this);
 		aFoulsPlus.addActionListener(this);
 		aFoulsMinus.addActionListener(this);
-		hFoulsPlus.addActionListener(this);
+		hFoulsMinus.addActionListener(this);
 		hTeamName.addActionListener(this);
 		aTeamName.addActionListener(this);
 
